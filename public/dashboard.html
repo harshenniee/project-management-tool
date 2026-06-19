@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PM Tool - Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+  body { display: block; height: auto; background: #f5f6fa; min-height: 100vh; }
+  .dashboard-container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+  .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 35px; }
+  .top-bar h2 { color: #1a1a2e; font-size: 28px; font-weight: 700; }
+  .logout-btn { background: white; color: #e74c3c; border: 1.5px solid #e74c3c; padding: 10px 18px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 13px; transition: all 0.2s; }
+  .logout-btn:hover { background: #e74c3c; color: white; }
+
+  .create-project-form { background: white; padding: 22px; border-radius: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 30px; }
+  .create-project-form input { width: 100%; padding: 12px 14px; margin-bottom: 12px; border: 1.5px solid #e2e2ea; border-radius: 8px; font-size: 14px; }
+  .create-project-form input:focus { outline: none; border-color: #667eea; }
+  .create-project-form button { background: #667eea; color: white; border: none; padding: 12px 22px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; transition: background 0.2s; }
+  .create-project-form button:hover { background: #5568d3; }
+
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; }
+  .project-card { background: white; padding: 24px; border-radius: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; border-left: 4px solid #667eea; }
+  .project-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+  .project-card h3 { color: #1a1a2e; margin-bottom: 8px; font-size: 17px; }
+  .project-card p { color: #888; font-size: 13px; }
+</style>
+</head>
+<body>
+
+  <div class="dashboard-container">
+    <div class="top-bar">
+      <h2>My Projects</h2>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <div class="create-project-form">
+      <input type="text" id="projectName" placeholder="Project Name">
+      <input type="text" id="projectDescription" placeholder="Description (optional)">
+      <button onclick="createProject()">+ Create Project</button>
+    </div>
+
+    <div class="projects-grid" id="projectsGrid"></div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
